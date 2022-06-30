@@ -1,0 +1,20 @@
+﻿@model Product
+<div class="card mb-2 bg-secondary">
+    <div class="card-body">
+        <img src="https://w7.pngwing.com/pngs/75/219/png-transparent-computer-icons-digital-cameras-graphy-digital-camera-miscellaneous-electronics-rectangle.png" class="card-img-top" alt="...">
+        <h4 class="card-title text-center">@Model.Name</h4>
+        <h6 class="card-title text-center">@Model.Price </h6>
+        <div>
+            <label class=" text-dark">@Model.Description</label>
+        </div>
+        <div class="card-footer bg-dark text-center d-flex justify-content-around p-2">
+
+            <form asp-controller="Home" asp-action="AddCart" method="post">
+                <input type="hidden" name="productId" value="@Model.ProductId" />
+                <input type="number" name="quantity" value="1" min="1" required />
+                <input type="hidden" name="price" value="@Model.Price" />
+                <button class="btn btn-sm btn-danger" type="submit">Sepete Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
